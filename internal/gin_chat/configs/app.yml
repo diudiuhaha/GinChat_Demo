@@ -1,0 +1,2 @@
+mysql:
+  dsn: root:123456@tcp(42.192.92.160:13306)/gin_chat?charset=utf8mb4&parseTime=True&loc=Local

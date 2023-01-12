@@ -3,7 +3,7 @@ package models
 
 import (
 	"fmt"
-	"ginchat/internal/gin_chat/utils"
+	"ginchat/internal/gin_chat/sys_init"
 	"gorm.io/gorm"
 )
 
@@ -15,7 +15,7 @@ type UserBasic struct {
 	PassWord      string `json:"pass_word"`
 	Phone         string `json:"phone"`
 	Email         string `json:"email"`
-	Identity      string `json:"identity"` ///唯一标识
+	Identity      string `json:"identity"` // /唯一标识
 	ClientIp      string `json:"client_ip"`
 	ClientPort    string `json:"client_port"`
 	LoginTime     string `json:"login_time"`
@@ -33,7 +33,7 @@ func (table *UserBasic) TableName() string {
 // /方法2
 func GetUserList() []*UserBasic {
 	data := make([]*UserBasic, 15)
-	utils.DB.Find(&data)
+	sys_init.DB.Find(&data)
 
 	for _, v := range data {
 		fmt.Println(v)
