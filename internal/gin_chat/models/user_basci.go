@@ -25,12 +25,12 @@ type UserBasic struct {
 	Device        string `json:"device"`
 }
 
-// / 方法1，定义一个方法,等待外部调用
+// TableName / 方法1，定义一个方法,等待外部调用
 func (table *UserBasic) TableName() string {
 	return "user_basic"
 }
 
-// /方法2
+// GetUserList /方法2用于获取用户信息
 func GetUserList() []*UserBasic {
 	data := make([]*UserBasic, 15)
 	sys_init.DB.Find(&data)
@@ -39,4 +39,9 @@ func GetUserList() []*UserBasic {
 		fmt.Println(v)
 	}
 	return data
+}
+
+// CreateUser 方法2用于增加用户
+func CreateUser(user UserBasic) *gorm.DB {
+	return sys_init.DB.Create(&user)
 }
