@@ -18,7 +18,7 @@ func main() {
 	docs.SwaggerInfo.BasePath = "" // 表示根目录/
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	err := r.Run(":12345")
+	err := r.Run(":8081")
 	if err != nil {
 		return
 	}
